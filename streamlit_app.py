@@ -2,6 +2,7 @@
 import streamlit as st
 import os
 import requests
+import pandas as pd
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -20,8 +21,13 @@ if order_name:
 
 cnx = st.connection("snowflake")
 session = cnx.session()
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col(SEARCH_ON)
 
+# Convert the Snowpark Datafram to a Pandas dataframe so we can use the LOC function
+pd_df=my_dataframe.to_pandas()
+st.dataframe)pd_df)
+st.stop()
+                                                                      
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredients: '
     , my_dataframe
