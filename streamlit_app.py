@@ -46,5 +46,6 @@ if ingredients_list and order_name:
 else:
     st.write(':warning: Order incomplete!')
 
-smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
+url = "https://my.smoothiefroot.com/api/fruit/watermelon"
+smoothiefroot_response = requests.get(url)
 st.text(smoothiefroot_response)
