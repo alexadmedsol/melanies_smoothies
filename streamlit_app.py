@@ -48,4 +48,4 @@ else:
 
 url = "https://my.smoothiefroot.com/api/fruit/watermelon"
 smoothiefroot_response = requests.get(url)
-st.text(smoothiefroot_response)
+st.text(smoothiefroot_response.json())
